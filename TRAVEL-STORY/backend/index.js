@@ -481,16 +481,7 @@ app.get("/travel-stories/filter",authenticateToken,async(req,res)=>{
 }
 });
 
-app.listen(8000);
-console.log("Server has started at 8000....");
-module.exports = app;
-
-
-//vite
-//axios
-// moongoose
-//npm install
-
-
-
-// admin pass: and username   ->   admin@gmail.com -> pass: admin@123
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server has started at ${PORT}...`);
+});
