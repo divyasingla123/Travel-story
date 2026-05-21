@@ -21,12 +21,15 @@ app.use(express.json());
 
 // Enable CORS for all requests including static files
 app.use(cors({ 
-  origin: "*",
+  origin: [
+      "http://localhost:5173",
+      "https://travel-story-q6i4.vercel.app",
+    ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
+app.options("*", cors());
 // Serve static files from uploads and assets directories
 app.use("/uploads", express.static(path.join(__dirname, "uploads"), {
   maxAge: '1d',
